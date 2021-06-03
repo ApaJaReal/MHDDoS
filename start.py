@@ -485,7 +485,7 @@ def http(event, socks_type):
             if socks_type == 1:
                 s.set_proxy(socks.HTTP, str(proxy[0]), int(proxy[1]))
             s.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
-            s.connect((str(target), int(port)))
+            s.connect((str(target), int("80")))
             if protocol == "https":
                 ctx = ssl.SSLContext()
                 s = ctx.wrap_socket(s, server_hostname=target)
